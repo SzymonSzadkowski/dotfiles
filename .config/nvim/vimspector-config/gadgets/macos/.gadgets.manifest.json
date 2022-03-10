@@ -1,0 +1,1 @@
+{"debugger-for-chrome": {"version": "4.12.10", "file_name": "msjsdiag.debugger-for-chrome-4.12.10.vsix", "checksum": "", "download": {"url": "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/msjsdiag/vsextensions/debugger-for-chrome/${version}/vspackage", "target": "msjsdiag.debugger-for-chrome-4.12.10.vsix.gz", "format": "zip.gz"}}}

@@ -1,0 +1,8 @@
+# This is Git's per-user configuration file.
+[user]
+	email = szymon.tomasz.szadkowski@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Szymon Szadkowski
+#	email = naqet@Szymons-MacBook-Pro.local
+[http]
+	sslCAInfo = /Users/naqet/BPower2/gitlab.sonelli-group.com.pem
