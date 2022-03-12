@@ -97,6 +97,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   hi SpellCap guifg=#a0b9d8 guibg=NONE guisp=#a0b9d8 gui=undercurl cterm=undercurl
   hi SpellLocal guifg=#a18daf guibg=NONE guisp=#a18daf gui=undercurl cterm=undercurl
   hi SpellRare guifg=#8296b0 guibg=NONE guisp=#8296b0 gui=undercurl cterm=undercurl
+  hi GitSignsChange guifg=#cf8164 guibg=NONE guisp=#cf8164 gui=undercurl cterm=undercurl
   if !s:italics
     hi Comment gui=NONE cterm=NONE
     hi Function gui=NONE cterm=NONE
@@ -106,9 +107,9 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:indentLine_color_term = 238
   let g:limelight_conceal_guifg = '#5b5f71'
   let g:limelight_conceal_ctermfg = 60
-  hi SignifySignAdd guifg=#92c47e guibg=NONE gui=NONE cterm=NONE
-  hi SignifySignDelete guifg=#fe9f7c guibg=NONE gui=NONE cterm=NONE
-  hi SignifySignChange guifg=#a0b9d8 guibg=NONE gui=NONE cterm=NONE
+  hi GitSignsAdd guifg=#92c47e guibg=NONE gui=NONE cterm=NONE
+  hi GitSignsDelete guifg=#fe9f7c guibg=NONE gui=NONE cterm=NONE
+  hi GitSignsChange guifg=#a0b9d8 guibg=NONE gui=NONE cterm=NONE
   hi! link Terminal Normal
   hi! link TabLine StatusLineNC
   hi! link TabLineFill StatusLineNC
@@ -290,9 +291,9 @@ if s:t_Co >= 256
   let g:indentLine_color_term = 238
   let g:limelight_conceal_guifg = '#5b5f71'
   let g:limelight_conceal_ctermfg = 60
-  hi SignifySignAdd ctermfg=114 ctermbg=NONE cterm=NONE
-  hi SignifySignDelete ctermfg=216 ctermbg=NONE cterm=NONE
-  hi SignifySignChange ctermfg=110 ctermbg=NONE cterm=NONE
+  hi GitSignsAdd ctermfg=114 ctermbg=NONE cterm=NONE
+  hi GitSignsDelete ctermfg=216 ctermbg=NONE cterm=NONE
+  hi GitSignsChange ctermfg=110 ctermbg=NONE cterm=NONE
   hi! link Terminal Normal
   hi! link TabLine StatusLineNC
   hi! link TabLineFill StatusLineNC
@@ -392,9 +393,9 @@ if s:t_Co >= 256
     hi Comment        cterm=NONE gui=NONE
     hi SpecialComment cterm=NONE gui=NONE
   endif
-  if !g:substrata_italic_functions
-    hi Function       cterm=NONE gui=NONE
-  endif
+"  if !g:substrata_italic_functions
+"    hi Function       cterm=NONE gui=NONE
+"  endif
   unlet s:t_Co s:italics
   finish
 endif
