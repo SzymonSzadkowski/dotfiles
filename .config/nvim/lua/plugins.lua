@@ -67,6 +67,7 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- Simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- Language server settings defined in json
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatters and linters
+	use("tomlion/vim-solidity") -- Solidity highlights
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip") --Snippet engine
@@ -81,12 +82,13 @@ return require("packer").startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
-	use("ThePrimeagen/git-worktree.nvim")
 
 	-- Theme
 	use("bluz71/vim-nightfly-guicolors")
 	use("kyazdani42/nvim-web-devicons")
 
+	-- Zoom buffers
+	use("szw/vim-maximizer")
 	if Packer_bootstrap then
 		require("packer").sync()
 	end

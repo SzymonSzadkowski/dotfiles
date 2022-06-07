@@ -1,2 +1,3 @@
 require("git-worktree").setup({})
---require('telescope').load_extension('git-worktree')
+-- If telescope does not see git-worktree, try this
+--require("telescope").load_extension("git-worktree")

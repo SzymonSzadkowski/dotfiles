@@ -14,20 +14,15 @@ keymap("n", "sj", "<C-w>j", { noremap = true, silent = true })
 keymap("n", "sl", "<C-w>l", { noremap = true, silent = true })
 
 -- Explorer
-keymap("n", "<Leader>s", ":NvimTreeToggle <CR>", { noremap = true, silent = true })
+-- keymap("n", "<Leader>s", ":NvimTreeToggle <CR>", { noremap = true, silent = true })
+keymap("n", "<Leader>s", ":NvimTreeFindFileToggle <CR>", { noremap = true, silent = true })
 
 -- Telescope
-keymap("n", "<Leader>t", ":Telescope find_files <CR>", { noremap = true, silent = true })
-keymap("n", "<Leader>f", ":Telescope live_grep <CR>", { noremap = true, silent = true })
-keymap(
-	"n",
-	"<Leader>gc",
-	':lua require("telescope").extensions.git_worktree.git_worktrees() <CR>',
-	{ noremap = true, silent = true }
-)
-keymap(
-	"n",
-	"<Leader>ga",
-	':lua require("telescope").extensions.git_worktree.create_git_worktree() <CR>',
-	{ noremap = true, silent = true }
-)
+keymap("n", "<Leader>ff", ":Telescope find_files <CR>", { noremap = true, silent = true })
+keymap("n", "<Leader>fl", ":Telescope live_grep <CR>", { noremap = true, silent = true })
+keymap("n", "<Leader>fd", ":lua require('config.telescope').search_dotfiles() <CR>", { noremap = true, silent = true })
+keymap("n", "<Leader>gg", ":Telescope git_branches <CR>", { noremap = true, silent = true })
+keymap("n", "<Leader>gs", ":Telescope git_status <CR>", { noremap = true, silent = true })
+
+-- Zoom buffers
+keymap("n", "<Leader>m", ":MaximizerToggle <CR>", { noremap = true, silent = true })

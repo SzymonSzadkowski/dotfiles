@@ -8,9 +8,8 @@ local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
 
-		prompt_prefix = "? ",
-		selection_caret = "? ",
 		path_display = { "smart" },
+		hidden = true,
 
 		mappings = {
 			i = {
@@ -87,11 +86,22 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		fzf = {
-			override_generic_sorter = true, -- override the generic sorter
-			override_file_sorter = true, -- override the file sorter
+		fzf = {},
+		git_worktree = {
+			change_directory_command = true,
 		},
 	},
 })
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("git-worktrees")
+
+local M = {}
+
+M.search_dotfiles = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "Dotfiles",
+		cwd = "~/.dotfiles/",
+		hidden = true,
+	})
+end
+
+return M

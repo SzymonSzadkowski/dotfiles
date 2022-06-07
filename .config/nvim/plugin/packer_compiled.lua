@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["git-worktree.nvim"] = {
-    loaded = true,
-    path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
-    url = "https://github.com/ThePrimeagen/git-worktree.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -195,10 +190,20 @@ _G.packer_plugins = {
     path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-maximizer"] = {
+    loaded = true,
+    path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/vim-maximizer",
+    url = "https://github.com/szw/vim-maximizer"
+  },
   ["vim-nightfly-guicolors"] = {
     loaded = true,
     path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/vim-nightfly-guicolors",
     url = "https://github.com/bluz71/vim-nightfly-guicolors"
+  },
+  ["vim-solidity"] = {
+    loaded = true,
+    path = "/Users/naqet/.local/share/nvim/site/pack/packer/start/vim-solidity",
+    url = "https://github.com/tomlion/vim-solidity"
   }
 }
 
