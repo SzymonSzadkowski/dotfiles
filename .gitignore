@@ -1,4 +1,4 @@
 node_modules
 .DS_STORE
-.zsh/plugins
-.config/nvim/vimspector-config
+.zsh/plugins/
+.config/nvim/vimspector-config/
