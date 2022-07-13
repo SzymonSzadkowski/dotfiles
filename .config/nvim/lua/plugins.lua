@@ -44,9 +44,6 @@ return require("packer").startup(function(use)
 	-- Explorer
 	use({
 		"kyazdani42/nvim-tree.lua",
-		config = function()
-			require("nvim-tree").setup({})
-		end,
 	})
 
 	-- Telescope

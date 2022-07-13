@@ -1,12 +1,9 @@
-vim.g.nvim_tree_respect_buf_cwd = 1
-
 require("nvim-tree").setup({
 	disable_netrw = false,
 	hijack_netrw = true,
 	open_on_setup = false,
 	ignore_buffer_on_setup = false,
 	ignore_ft_on_setup = {},
-	auto_close = false,
 	auto_reload_on_write = true,
 	open_on_tab = false,
 	hijack_cursor = false,
