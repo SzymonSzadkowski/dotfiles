@@ -21,3 +21,8 @@ function cloud() {
 	cd ~/BPower2/mybpower2_wieldy/
 	createProjectSession cloud
 }
+
+function marta() {
+	cd ~/Programming/websites/mkrauz/
+	createProjectSession marta
+}

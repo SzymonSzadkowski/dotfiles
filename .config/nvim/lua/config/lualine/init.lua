@@ -4,17 +4,18 @@ if not lualine_status_ok then
 	return
 end
 
-local nightfly_status_ok, nightfly = pcall(require, "lualine.themes.nightfly")
-if not nightfly_status_ok then
+local tokyonight_status_ok, tokyonight = pcall(require, "lualine.themes.tokyonight")
+if not tokyonight_status_ok then
 	return
 end
 
-nightfly.normal.c.bg = "default"
+tokyonight.normal.c.bg = "#1A1B26"
+tokyonight.normal.a.bg = "#7DCFFF"
 
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = nightfly,
+		theme = tokyonight,
 		disabled_filetypes = {},
 		always_divide_middle = true,
 	},

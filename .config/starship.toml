@@ -1,0 +1,74 @@
+format = """\
+        $username\
+        $directory\
+        $git_branch\
+        $git_status\
+        $git_state\
+        $line_break\
+        $character\
+        """
+
+right_format = """\
+							$cmd_duration\
+							 """
+add_newline = true
+
+[hostname]
+disabled=true
+
+[directory]
+style = "bg:#1A1B26 fg:#7DCFFF"
+read_only = " "
+read_only_style = "bg:#7DCFFF fg:#1A1B26"
+truncation_length = 4
+truncate_to_repo = false
+truncation_symbol = "…/"
+format = "[$path ]($style)"
+
+[git_branch]
+style = "bg:#7DCFFF fg:#1A1B26"
+format = "[[](bg:#7DCFFF fg:#1A1B26) $branch [](bg:#1A1B26 fg:#7DCFFF)]($style)"
+
+[git_status]
+style = "bg:#1A1B26 fg:#7DCFFF"
+stashed = "${count}* "
+staged = "${count}+ "
+modified = "${count} "	
+renamed = "${count}» "
+untracked = "${count}? "
+deleted = "${count}- "
+conflicted = "${count}! "
+ahead = "${count}⇡ "
+behind = "${count}⇣ "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+format = "([ [$stashed](bg:#1A1B26 fg:#BB9AF7)[$staged](bg:#1A1B26 fg:#4e8c63)[$modified](bg:#1A1B26 fg:#E0AF68)$renamed$untracked[$deleted$conflicted](bg:#1A1B26 fg:#F7768E)$ahead_behind$diverged]($style))"
+
+[git_state]
+style = "bg:#7DCFFF fg:#1A1B26"
+rebase = "rebasing"
+merge = "merging"
+revert = "reverting"
+cherry_pick = "cherry picking"
+bisect = "bisecting"
+am = "am'ing"
+am_or_rebase = "am/rebase"
+format = '[[](bg:#7DCFFF fg:#1A1B26) $state($progress_current/$progress_total) [](bg:#1A1B26 fg:#7DCFFF)]($style)'
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = "[[](bg:#4e8c63 fg:#1A1B26)](fg:#4e8c63)"
+error_symbol = "[[](bg:#F7768E fg:#1A1B26)](fg:#F7768E)"
+vicmd_symbol = "[[](bg:#c0976b fg:#1A1B26)[](bg:#1A1B26 fg:#c0976b)](bold bg:#c0976b fg:#ff3322)"
+format = "$symbol "
+
+[cmd_duration]
+disabled = false
+style = "bg:#1A1B26 fg:#EEEEEE"
+min_time = 2_000
+show_milliseconds = false
+show_notifications = false
+min_time_to_notify = 50_000
+format = "[ $duration ]($style)"
+

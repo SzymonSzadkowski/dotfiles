@@ -81,11 +81,15 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 
 	-- Theme
-	use("bluz71/vim-nightfly-guicolors")
+	use("folke/tokyonight.nvim")
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Zoom buffers
 	use("szw/vim-maximizer")
+
+	-- Markdown preview
+	use({ "iamcco/markdown-preview.nvim" })
+
 	if Packer_bootstrap then
 		require("packer").sync()
 	end
