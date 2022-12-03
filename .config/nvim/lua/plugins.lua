@@ -60,8 +60,9 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- Snippet completions
 
 	-- LSP
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig") -- Main LSP plugin
-	use("williamboman/nvim-lsp-installer") -- Simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- Language server settings defined in json
 	use("jose-elias-alvarez/null-ls.nvim") -- Formatters and linters
 	use("tomlion/vim-solidity") -- Solidity highlights
@@ -81,14 +82,14 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 
 	-- Theme
-	use("folke/tokyonight.nvim")
+	use("EdenEast/nightfox.nvim") -- Packer
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Zoom buffers
 	use("szw/vim-maximizer")
 
 	-- Markdown preview
-	use({ "iamcco/markdown-preview.nvim" })
+	use("iamcco/markdown-preview.nvim")
 
 	if Packer_bootstrap then
 		require("packer").sync()

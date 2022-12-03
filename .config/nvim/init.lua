@@ -1,7 +1,7 @@
 -- Global settings
+require("options")
 require("plugins")
 require("keymappings")
-require("options")
 require("colorscheme")
 
 -- Plugins settings

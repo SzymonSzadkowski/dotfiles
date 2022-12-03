@@ -1,4 +1,5 @@
 -- Global
+vim.g.mapleader = " "
 vim.o.autoread = true
 vim.o.background = "dark"
 vim.o.clipboard = "unnamed"

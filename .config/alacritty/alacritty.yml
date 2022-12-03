@@ -1,5 +1,10 @@
 window:
-  startup_mode: Fullscreen
+  #  startup_mode: Fullscreen
+  decorations: none
+  opacity: 0.9
+  dimensions:
+    columns: 200
+    lines: 57
 
 font:
   normal:
@@ -50,4 +55,5 @@ colors:
     - { index: 17, color: "0xdb4b4b" }
 
 key_bindings:
+  # Tmux leader
   - { key: S, mods: Command, chars: "\x02" }

@@ -1,14 +1,21 @@
 vim.o.termguicolors = true
+
+local nightfox_status_ok, nightfox = pcall(require, "nightfox")
+if not nightfox_status_ok then
+	return
+end
+
+nightfox.setup({
+	options = {
+		transparent = true,
+	},
+})
+
 vim.cmd([[
-		try
-			let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-			let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-			set termguicolors
-			let g:tokyonight_style = 'night'
-			let g:tokyonight_enable_italic = 1
-			colorscheme tokyonight
-		catch /^Vim\%((\a\+)\)\=:E185/
-			colorscheme default
-			set background=dark
-		endtry
+  try 
+	  colorscheme nightfox
+	catch
+	  colorscheme default
+		set background=dark
+	endtry
 ]])
