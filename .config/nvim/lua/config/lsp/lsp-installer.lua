@@ -20,30 +20,11 @@ mason_lspconfig.setup_handlers({
 			capabilities = opts.capabilities,
 		})
 	end,
-
-	["jsonls"] = function()
-		lspconfig.jsonls.setup({
+	["lua_ls"] = function()
+		lspconfig.lua_ls.setup({
 			on_attach = opts.on_attach,
 			capabilities = opts.capabilities,
-			settings = require("config.lsp.settings.jsonls"),
-			setup = {
-				commands = {
-					Format = {
-						function()
-							vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-						end,
-					},
-				},
-			},
-		})
-	end,
-
-	["sumneko_lua"] = function()
-		lspconfig.sumneko_lua.setup({
-			on_attach = opts.on_attach,
-			capabilities = opts.capabilities,
-
-			settings = require("config.lsp.settings.sumneko_lua"),
+			settings = require("config.lsp.settings.lua_ls"),
 		})
 	end,
 })

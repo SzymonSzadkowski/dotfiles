@@ -14,3 +14,8 @@ source ~/.scripts/projects.sh
 # Plugins
 source ~/.dotfiles/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/naqet/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

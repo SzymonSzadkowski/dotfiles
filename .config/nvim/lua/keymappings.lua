@@ -13,6 +13,10 @@ keymap("n", "sk", "<C-w>k", defaultOptions)
 keymap("n", "sj", "<C-w>j", defaultOptions)
 keymap("n", "sl", "<C-w>l", defaultOptions)
 
+-- Vertical movement
+keymap("n", "<C-d>", "<C-d>zz", defaultOptions)
+keymap("n", "<C-u>", "<C-u>zz", defaultOptions)
+
 -- Explorer
 -- keymap("n", "<Leader>s", ":NvimTreeToggle <CR>", defaultOptions)
 keymap("n", "<Leader>s", ":NvimTreeFindFileToggle <CR>", defaultOptions)

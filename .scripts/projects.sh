@@ -22,7 +22,7 @@ function cloud() {
 	createProjectSession cloud
 }
 
-function marta() {
-	cd ~/Programming/websites/mkrauz/
-	createProjectSession marta
+function chat() {
+	cd ~/Programming/learning/chat-nextjs-firebase
+	createProjectSession chat
 }
