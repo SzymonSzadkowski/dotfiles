@@ -1,22 +1,31 @@
--- Global
+vim.opt.nu = true
+vim.opt.rnu = true
+
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
+vim.opt.autoindent = true
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.autoread = true
+vim.opt.background = "dark"
+vim.opt.clipboard = "unnamed"
+vim.opt.mouse = "a"
+vim.opt.showmode = false
+
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
+
+vim.opt.scrolloff = 8
 vim.g.mapleader = " "
-vim.o.autoread = true
-vim.o.background = "dark"
-vim.o.clipboard = "unnamed"
-vim.o.laststatus = 2
-vim.o.mouse = "a"
-vim.o.showmode = false
-vim.o.smarttab = true
-vim.o.autoindent = true
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.smartindent = true
-vim.o.swapfile = false
-
--- Local to window
-vim.wo.number = true
-vim.wo.relativenumber = true
-
--- Local to buffer
-vim.bo.syntax = "enabled"

@@ -1,56 +1,59 @@
-window:
-  startup_mode: Maximized
-  decorations: none
-  opacity: 0.9
-
-font:
-  normal:
-    family: MesloLGS NF
-    style: Regular
-  bold:
-    family: MesloLGS NF
-    style: Bold
-  italic:
-    family: MesloLGS NF
-    style: Italic
-  bold_italic:
-    family: MesloLGS NF
-    style: Bold Italic
-draw_bold_text_with_bright_colors: true
-
 # TokyoNight Alacritty Colors
 colors:
+  # Bright colors
+  bright:
+    black: "0x414868"
+    blue: "0x7aa2f7"
+    cyan: "0x7dcfff"
+    green: "0x9ece6a"
+    red: "0xf7768e"
+    white: "0xc0caf5"
+    yellow: "0xe0af68"
+
+  indexed_colors:
+    - { color: "0xff9e64", index: 16 }
+    - { color: "0xdb4b4b", index: 17 }
+  # Normal colors
+  normal:
+    black: "0x15161E"
+    blue: "0x7aa2f7"
+    cyan: "0x7dcfff"
+    green: "0x9ece6a"
+    magenta: "0xbb9af7"
+    red: "0xf7768e"
+    white: "0xa9b1d6"
+    yellow: "0xe0af68"
+
   # Default colors
   primary:
     background: "0x1a1b26"
     foreground: "0xc0caf5"
 
-  # Normal colors
+draw_bold_text_with_bright_colors: true
+
+# Settings
+
+font:
+  bold:
+    family: MesloLGS NF
+    style: Bold
+  bold_italic:
+    family: MesloLGS NF
+    style: Bold Italic
+  italic:
+    family: MesloLGS NF
+    style: Italic
   normal:
-    black: "0x15161E"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xa9b1d6"
-
-  # Bright colors
-  bright:
-    black: "0x414868"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xc0caf5"
-
-  indexed_colors:
-    - { index: 16, color: "0xff9e64" }
-    - { index: 17, color: "0xdb4b4b" }
+    family: MesloLGS NF
+    style: Regular
+  size: 14
 
 key_bindings:
   # Tmux leader
-  - { key: S, mods: Command, chars: "\x02" }
+  - { chars: "\x02", key: S, mods: Command }
+  - { chars: "\x1b\x7f", key: Back, mods: Alt }
+
+window:
+  decorations: none
+  opacity: 0.9
+  startup_mode: Maximized

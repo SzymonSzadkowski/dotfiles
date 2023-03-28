@@ -6,10 +6,7 @@ export TERM="xterm-256color"
 # Aliases
 alias vim="nvim"
 alias tm="tmux"
-
-# Custom scripts
-source ~/.scripts/sessionScripts.sh
-source ~/.scripts/projects.sh
+alias sn="~/.scripts/sessionizer.sh"
 
 # Plugins
 source ~/.dotfiles/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
