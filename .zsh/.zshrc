@@ -8,6 +8,14 @@ alias vim="nvim"
 alias tm="tmux"
 alias sn="~/.scripts/sessionizer.sh"
 
+# Additinal settings
+bindkey -e
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+# Custom scripts
+source ~/.scripts/worktree-branch.sh
+
 # Plugins
 source ~/.dotfiles/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"

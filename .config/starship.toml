@@ -60,7 +60,6 @@ disabled = true
 [character]
 success_symbol = "[[](bg:#4e8c63 fg:#1A1B26)](fg:#4e8c63)"
 error_symbol = "[[](bg:#F7768E fg:#1A1B26)](fg:#F7768E)"
-vicmd_symbol = "[[](bg:#c0976b fg:#1A1B26)[](bg:#1A1B26 fg:#c0976b)](bold bg:#c0976b fg:#ff3322)"
 format = "$symbol "
 
 [cmd_duration]

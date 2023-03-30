@@ -23,13 +23,13 @@ keymap("n", "<Leader>s", ":NvimTreeFindFileToggle <CR>", defaultOptions)
 
 -- Telescope
 keymap("n", "<Leader>ff", ":Telescope find_files <CR>", defaultOptions)
-keymap("n", "<Leader>fl", ":Telescope live_grep", defaultOptions)
+keymap("n", "<Leader>fl", ":Telescope live_grep <CR>", defaultOptions)
 keymap("n", "<Leader>df", ":lua require('config.telescope').search_dotfiles() <CR>", defaultOptions)
 keymap(
-	"n",
-	"<Leader>gc",
-	":lua require('telescope').extensions.git_worktree.create_git_worktree() <CR>",
-	defaultOptions
+    "n",
+    "<Leader>gc",
+    ":lua require('telescope').extensions.git_worktree.create_git_worktree() <CR>",
+    defaultOptions
 )
 keymap("n", "<Leader>gb", ":lua require('telescope').extensions.git_worktree.git_worktrees() <CR>", defaultOptions)
 keymap("n", "<Leader>gs", ":Telescope git_status <CR>", defaultOptions)
