@@ -1,8 +1,10 @@
-# This is Git's per-user configuration file.
 [user]
-	email = szymon.tomasz.szadkowski@gmail.com
-#   Please adapt and uncomment the following lines:
-	name = Szymon Szadkowski
-#	email = naqet@Szymons-MacBook-Pro.local
-[http]
-	sslCAInfo = /Users/naqet/work/gitlab.sonelli-group.com.pem
+	name = naqet
+	email = naqet8@gmail.com
+[core]
+	editor = nvim
+[color]
+	ui = true
+
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work

@@ -2,14 +2,14 @@ local fn = vim.fn
 local install_path = "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	Packer_bootstrap = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
+    Packer_bootstrap = fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -23,76 +23,88 @@ end
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+    return
 end
 
 -- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
 })
 
 return require("packer").startup(function(use)
-	-- Essential
-	use("wbthomason/packer.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
+    -- Essential
+    use("wbthomason/packer.nvim")
+    use("nvim-lua/plenary.nvim")
+    use("nvim-lua/popup.nvim")
 
-	-- Explorer
-	use({
-		"kyazdani42/nvim-tree.lua",
-	})
+    -- Explorer
+    use({
+        "kyazdani42/nvim-tree.lua",
+    })
 
-	-- Telescope
-	use("nvim-telescope/telescope.nvim")
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    -- Telescope
+    use("nvim-telescope/telescope.nvim")
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	-- Autocompletion
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- Buffer completions
-	use("hrsh7th/cmp-path") -- Path completions
-	use("hrsh7th/cmp-cmdline") -- Cmdline completions
-	use("hrsh7th/cmp-nvim-lsp") -- Vim configuration completions
-	use("hrsh7th/cmp-nvim-lua") -- Lua vim completions
-	use("saadparwaiz1/cmp_luasnip") -- Snippet completions
+    -- HARPOON
+    use("theprimeagen/harpoon");
 
-	-- LSP
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig") -- Main LSP plugin
-	use("tamago324/nlsp-settings.nvim") -- Language server settings defined in json
-	use("jose-elias-alvarez/null-ls.nvim") -- Formatters and linters
-	use("tomlion/vim-solidity") -- Solidity highlights
+    -- LSP
+    use('tomlion/vim-solidity');
+    use({
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-	-- Snippets
-	use("L3MON4D3/LuaSnip") --Snippet engine
-	use("rafamadriz/friendly-snippets") -- Snippets examples
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
 
-	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
+        }
+    })
 
-	-- Lualine
-	use("nvim-lualine/lualine.nvim")
+    -- Formatters and Linters
+    use('jose-elias-alvarez/null-ls.nvim');
 
-	-- Git
-	use("lewis6991/gitsigns.nvim")
-	use("tpope/vim-fugitive")
-	use("ThePrimeagen/git-worktree.nvim")
+    -- Treesitter
+    use("nvim-treesitter/nvim-treesitter")
 
-	-- Theme
-	use("EdenEast/nightfox.nvim") -- Packer
-	use("kyazdani42/nvim-web-devicons")
+    -- Lualine
+    use("nvim-lualine/lualine.nvim")
 
-	-- Zoom buffers
-	use("szw/vim-maximizer")
+    -- Git
+    use("lewis6991/gitsigns.nvim")
+    use("tpope/vim-fugitive")
+    use("ThePrimeagen/git-worktree.nvim")
 
-	-- Markdown preview
-	use("iamcco/markdown-preview.nvim")
+    -- Theme
+    use("EdenEast/nightfox.nvim")
+    use("kyazdani42/nvim-web-devicons")
 
-	if Packer_bootstrap then
-		require("packer").sync()
-	end
+    -- Zoom buffers
+    use("szw/vim-maximizer")
+
+    -- Markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = {
+                "markdown" }
+        end,
+        ft = { "markdown" },
+    })
+
+    if Packer_bootstrap then
+        require("packer").sync()
+    end
 end)

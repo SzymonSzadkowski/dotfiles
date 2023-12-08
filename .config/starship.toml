@@ -17,7 +17,7 @@ add_newline = true
 disabled=true
 
 [directory]
-style = "bg:#1A1B26 fg:#7DCFFF"
+style = "bg:#1A1B26 fg:#65b1cd"
 read_only = " "
 read_only_style = "bg:#7DCFFF fg:#1A1B26"
 truncation_length = 4
@@ -26,8 +26,9 @@ truncation_symbol = "…/"
 format = "[$path ]($style)"
 
 [git_branch]
-style = "bg:#7DCFFF fg:#1A1B26"
-format = "[[](bg:#7DCFFF fg:#1A1B26) $branch [](bg:#1A1B26 fg:#7DCFFF)]($style)"
+style = "bg:#65b1cd fg:#1A1B26"
+format = "[[](bg:#65b1cd fg:#1A1B26) $branch [](bg:#1A1B26 fg:#65b1cd)]($style)"
+truncation_length = 30
 
 [git_status]
 style = "bg:#1A1B26 fg:#7DCFFF"
