@@ -8,7 +8,7 @@ alias vim="nvim"
 alias tm="tmux"
 alias sn="~/.scripts/sessionizer.sh"
 alias dot="cd ~/.dotfiles && nvim"
-alias fix_docker="sudo ln -s ~/.docker/run/docker.sock /var/run/docker.sock "
+alias fixdocker="sudo ln -s ~/.docker/run/docker.sock /var/run/docker.sock "
 
 # Additinal settings
 bindkey -e

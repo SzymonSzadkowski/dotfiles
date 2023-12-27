@@ -45,7 +45,7 @@ font:
   normal:
     family: FiraCode Nerd Font
     style: Regular
-  size: 13.5
+  size: 15
 
 key_bindings:
   # Tmux leader

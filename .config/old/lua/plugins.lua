@@ -53,6 +53,8 @@ return require("packer").startup(function(use)
     -- HARPOON
     use("theprimeagen/harpoon");
 
+    use("preservim/nerdtree");
+
     -- LSP
     use('tomlion/vim-solidity');
     use({
