@@ -4,49 +4,41 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-        -- Packer can manage itself
-        use('wbthomason/packer.nvim')
-        use "nvim-lua/plenary.nvim"
+    -- Packer can manage itself
+    use('wbthomason/packer.nvim')
+    use('nvim-lua/plenary.nvim')
 
-        -- Telescope
-        use({
-                'nvim-telescope/telescope.nvim',
-                tag = '0.1.5',
-                requires = { { 'nvim-lua/plenary.nvim' } }
-        })
-        use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    -- Telescope
+    use({
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    })
+    use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
-        -- Colorscheme
-        use({ 'rose-pine/neovim', as = 'rose-pine' })
+    -- Colorscheme
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
 
-        -- Treesitter
-        use({ 'nvim-treesitter/nvim-treesitter' })
-        use {
-                "ThePrimeagen/harpoon",
-                branch = "harpoon2",
-                requires = { { "nvim-lua/plenary.nvim" } }
-        }
+    -- Treesitter
+    use('nvim-treesitter/nvim-treesitter')
+    use {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
-        use("kyazdani42/nvim-tree.lua")
-        use 'mbbill/undotree'
-        use 'lewis6991/gitsigns.nvim'
-        use 'tpope/vim-fugitive'
-        use "iamcco/markdown-preview.nvim"
+    use('mbbill/undotree')
+    use('lewis6991/gitsigns.nvim')
+    use('tpope/vim-fugitive')
+    use('iamcco/markdown-preview.nvim')
 
-        use {
-                'VonHeikemen/lsp-zero.nvim',
-                branch = 'v3.x',
-                requires = {
-                        --- Uncomment these if you want to manage LSP servers from neovim
-                        { 'williamboman/mason.nvim' },
-                        { 'williamboman/mason-lspconfig.nvim' },
+    -- LSP
+    use('neovim/nvim-lspconfig')
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
 
-                        -- LSP Support
-                        { 'neovim/nvim-lspconfig' },
-                        -- Autocompletion
-                        { 'hrsh7th/nvim-cmp' },
-                        { 'hrsh7th/cmp-nvim-lsp' },
-                        { 'L3MON4D3/LuaSnip' },
-                }
-        }
+    -- Autocomplete
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('L3MON4D3/LuaSnip')
 end)

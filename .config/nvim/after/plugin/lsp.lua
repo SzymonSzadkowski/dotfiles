@@ -1,7 +1,32 @@
-local lsp = require('lsp-zero')
+local cmp = require("cmp");
+local luasnip = require("luasnip");
 
-lsp.on_attach(function(_, bufnr)
-        local opts = { buffer = bufnr, remap = false }
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    mapping = {
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+        ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+    },
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        local opts = { buffer = ev.buf }
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -11,31 +36,27 @@ lsp.on_attach(function(_, bufnr)
         vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("n", "<leader>fa", function() vim.lsp.buf.format() end, opts)
-end)
-
-local cmp = require("cmp");
-local cmp_action = require("lsp-zero").cmp_action();
-cmp.setup({
-        mapping = {
-                ['<CR>'] = cmp.mapping.confirm({ select = false }),
-                ['<C-Space>'] = cmp.mapping.complete(),
-
-                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-                ['<Tab>'] = cmp_action.luasnip_next(),
-                ['<S-Tab>'] = cmp_action.select_prev_or_fallback()
-        }
+    end,
 })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-        ensure_installed = {},
-        handlers = {
-                lsp.default_setup,
-                lua_ls = function()
-                        local lua_opts = lsp.nvim_lua_ls()
-                        require('lspconfig').lua_ls.setup(lua_opts)
-                end,
-        },
+    ensure_installed = {},
+    handlers = {
+        function(server_name)
+            require("lspconfig")[server_name].setup({})
+        end,
+        ["lua_ls"] = function ()
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            })
+        end
+    },
 })

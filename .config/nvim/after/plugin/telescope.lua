@@ -7,9 +7,19 @@ local actions = require("telescope.actions")
 
 telescope.setup({
     defaults = {
-        file_ignore_patterns = { "node_modules", "ckeditor", "package-lock.json" },
-        path_display = { "smart" },
-        hidden = true,
+        file_ignore_patterns = { "node_modules", "package-lock.json" },
+        path_display = { shorten = { exclude = { 2, -2, -1 } } },
+        -- path_display = { "smart" },
+        scroll_strategy = "limit",
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--column',
+            '--smart-case',
+            '--hidden',
+        },
         mappings = {
             i = {
                 ["<C-n>"] = actions.cycle_history_next,

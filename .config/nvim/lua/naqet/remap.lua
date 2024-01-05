@@ -8,6 +8,9 @@ vim.keymap.set("n", "sj", "<C-w>j")
 vim.keymap.set("n", "sk", "<C-w>k")
 vim.keymap.set("n", "sl", "<C-w>l")
 
+-- Netrw
+vim.keymap.set("n", "<leader>s", ":Explore <CR>")
+
 -- Moving lines in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv");
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv");
