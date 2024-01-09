@@ -40,11 +40,27 @@ telescope.setup({
 })
 require("telescope").load_extension("fzf")
 
+
+local builtin = require('telescope.builtin');
+
 vim.keymap.set("n", "<Leader>ff", ":Telescope find_files <CR>")
 vim.keymap.set("n", "<Leader>fo", ":Telescope git_files <CR>")
 vim.keymap.set("n", "<Leader>fl", ":Telescope live_grep <CR>")
+vim.keymap.set("n", "<Leader>fd", function()
+    local dir = vim.fn.input("Dir: ", "", "file");
+
+    if dir == "" then
+        print('Cancelled');
+        return;
+    end
+
+    builtin.live_grep({
+        prompt_title = "Searching inside: " .. dir,
+        cwd = dir,
+    })
+end)
 vim.keymap.set("n", "<Leader>df", function()
-    require("telescope.builtin").find_files({
+    builtin.find_files({
         prompt_title = "Dotfiles",
         cwd = "~/.dotfiles/",
         hidden = true,
