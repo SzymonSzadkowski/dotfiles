@@ -9,7 +9,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.g.netrw_browse_split = 4
+vim.g.netrw_browse_split = 0
 
 vim.opt.smartindent = true
 
@@ -20,7 +20,7 @@ vim.opt.incsearch = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
 vim.opt.termguicolors = true

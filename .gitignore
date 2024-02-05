@@ -2,3 +2,4 @@ node_modules
 .DS_STORE
 .zsh/plugins/
 .config/nvim/vimspector-config/
+.config/nvim/undodir
