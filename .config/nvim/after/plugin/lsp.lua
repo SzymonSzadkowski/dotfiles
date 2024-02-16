@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {},
@@ -46,14 +47,25 @@ require('mason-lspconfig').setup({
         function(server_name)
             require("lspconfig")[server_name].setup({})
         end,
-        ["lua_ls"] = function ()
+        ["lua_ls"] = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 settings = {
                     Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
+                        },
                         diagnostics = {
                             globals = { "vim" }
-                        }
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = vim.api.nvim_get_runtime_file("", true),
+                        },
+                        -- Do not send telemetry data containing a randomized but unique identifier
+                        telemetry = {
+                            enable = false,
+                        },
                     }
                 }
             })
