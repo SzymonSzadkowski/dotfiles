@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<Space>", "<NOP>")
-vim.keymap.set("n", "<Leader>s", ":NvimTreeFindFileToggle <CR>")
+vim.keymap.set("i", "jk", "<Esc>");
 vim.keymap.set("i", "jk", "<Esc>");
 
 -- Moving through panes

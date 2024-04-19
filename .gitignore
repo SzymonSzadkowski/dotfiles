@@ -3,3 +3,4 @@ node_modules
 .zsh/plugins/
 .config/nvim/vimspector-config/
 .config/nvim/undodir
+.config/nvim/plugin

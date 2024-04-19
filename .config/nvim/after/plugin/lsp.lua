@@ -1,28 +1,3 @@
-local cmp = require("cmp");
-local luasnip = require("luasnip");
-
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    mapping = {
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        ['<C-Space>'] = cmp.mapping.complete(),
-
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-        ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    },
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-    },
-})
-
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -39,7 +14,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.filetype.add({ extension = { templ = "templ" } })
 
+local lspconfig = require("lspconfig")
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {},
@@ -48,15 +25,11 @@ require('mason-lspconfig').setup({
             require("lspconfig")[server_name].setup({})
         end,
         ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 settings = {
                     Lua = {
                         runtime = {
                             version = 'LuaJIT',
-                        },
-                        diagnostics = {
-                            globals = { "vim" }
                         },
                         workspace = {
                             -- Make the server aware of Neovim runtime files
@@ -68,6 +41,14 @@ require('mason-lspconfig').setup({
                         },
                     }
                 }
+            })
+        end,
+        ['html'] = function()
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+            lspconfig.html.setup({
+                capabilities = capabilities,
             })
         end
     },

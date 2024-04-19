@@ -1,0 +1,7 @@
+-- Possible s remap so I can move between panes when netrw is open
+--vim.api.nvim_create_autocmd("FileType", {
+--    pattern = "netrw",
+--    callback = function()
+--        vim.keymap.set("n", "s", "<nop>", {remap = true, buffer = true})
+--    end
+--})

@@ -25,4 +25,7 @@ eval "$(starship init zsh)"
 # pnpm
 export PNPM_HOME="/Users/naqet/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+
+# Golang
+export PATH="$PATH:$HOME/go/bin"
+

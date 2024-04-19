@@ -1,8 +1,4 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-    return
-end
-
+local telescope = require("telescope")
 local actions = require("telescope.actions")
 
 telescope.setup({
@@ -38,14 +34,13 @@ telescope.setup({
         }
     }
 })
-require("telescope").load_extension("fzf")
-
+telescope.load_extension("fzf")
 
 local builtin = require('telescope.builtin');
 
-vim.keymap.set("n", "<Leader>ff", ":Telescope find_files <CR>")
-vim.keymap.set("n", "<Leader>fo", ":Telescope git_files <CR>")
-vim.keymap.set("n", "<Leader>fl", ":Telescope live_grep <CR>")
+vim.keymap.set("n", "<Leader>ff", builtin.find_files)
+vim.keymap.set("n", "<Leader>fo", builtin.git_files)
+vim.keymap.set("n", "<Leader>fl", builtin.live_grep)
 vim.keymap.set("n", "<Leader>fd", function()
     local dir = vim.fn.input("Dir: ", "", "file");
 
@@ -64,7 +59,8 @@ vim.keymap.set("n", "<Leader>df", function()
         prompt_title = "Dotfiles",
         cwd = "~/.dotfiles/",
         hidden = true,
+        file_ignore_patterns = { ".git" }
     })
 end)
-vim.keymap.set("n", "<Leader>gb", ":Telescope git_branches <CR>")
-vim.keymap.set("n", "<Leader>gs", ":Telescope git_status <CR>")
+vim.keymap.set("n", "<Leader>gb", builtin.git_branches)
+vim.keymap.set("n", "<Leader>gs", builtin.git_status)

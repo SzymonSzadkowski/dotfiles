@@ -1,8 +1,10 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.netrw_banner = 0;
 
 vim.opt.nu = true;
 vim.opt.relativenumber = true;
+vim.opt.showmode = false
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
