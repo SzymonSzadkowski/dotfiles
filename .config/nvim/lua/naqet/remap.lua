@@ -1,6 +1,5 @@
 vim.keymap.set("n", "<Space>", "<NOP>")
 vim.keymap.set("i", "jk", "<Esc>");
-vim.keymap.set("i", "jk", "<Esc>");
 
 -- Moving through panes
 vim.keymap.set("n", "sh", "<C-w>h")
@@ -31,6 +30,9 @@ vim.keymap.set("n", "<C-t>", "<cmd> !tmux neww ~/.dotfiles/.scripts/sessionizer.
 
 -- Paste without replacing register
 vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- Ctrl-Backspace for delete word in command line
+vim.keymap.set("c", "<M-BS>", "<C-w>")
 
 -- Reset unused commands
 vim.keymap.set("n", "Q", "<nop>")

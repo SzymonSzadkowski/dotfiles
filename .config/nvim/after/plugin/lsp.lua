@@ -16,13 +16,57 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.filetype.add({ extension = { templ = "templ" } })
 
+vim.diagnostic.config({ virtual_text = false, float = { border = "single" } })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+        border = "single"
+    }
+)
+
+
 local lspconfig = require("lspconfig")
+
+local function filter(arr, fn)
+    if type(arr) ~= "table" then
+        return arr
+    end
+
+    local filtered = {}
+    for k, v in pairs(arr) do
+        if fn(v, k, arr) then
+            table.insert(filtered, v)
+        end
+    end
+
+    return filtered
+end
+
+local function filterReactDTS(value)
+    return string.match(value.targetUri, 'react/index.d.ts') == nil
+end
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {},
     handlers = {
         function(server_name)
             require("lspconfig")[server_name].setup({})
+        end,
+        ["tsserver"] = function()
+            lspconfig.tsserver.setup {
+                -- other options
+                handlers = {
+                    ['textDocument/definition'] = function(err, result, method, ...)
+                        if vim.tbl_islist(result) and #result > 1 then
+                            local filtered_result = filter(result, filterReactDTS)
+                            return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
+                        end
+
+                        vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
+                    end
+                }
+            }
         end,
         ["lua_ls"] = function()
             lspconfig.lua_ls.setup({

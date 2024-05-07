@@ -1,12 +1,6 @@
 local cmp = require("cmp");
-local luasnip = require("luasnip");
 
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -18,7 +12,22 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     },
     sources = {
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
-        { name = "luasnip" },
     },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
+    formatting = {
+        format = function (entry, item)
+            local menu_icon = {
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[LUA]"
+            }
+
+            item.menu = menu_icon[entry.source.name]
+            return item
+        end
+    }
 })
