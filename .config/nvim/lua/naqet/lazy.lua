@@ -17,7 +17,7 @@ require('lazy').setup({
     -- Telescope
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
+        version = '0.1.5',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -41,6 +41,7 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lua',
+    { 'saadparwaiz1/cmp_luasnip', dependencies = { 'L3MON4D3/LuaSnip', version = "v2.*", build = "make install_jsregexp" } },
 
     -- Utils
     'mbbill/undotree',

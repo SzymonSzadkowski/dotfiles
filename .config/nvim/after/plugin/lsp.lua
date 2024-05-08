@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.filetype.add({ extension = { templ = "templ" } })
 
-vim.diagnostic.config({ virtual_text = false, float = { border = "single" } })
+vim.diagnostic.config({ virtual_text = false, float = { border = "rounded", style = "minimal", source = "always" } })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
