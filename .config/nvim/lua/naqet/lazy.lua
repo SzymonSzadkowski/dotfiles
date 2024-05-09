@@ -37,6 +37,8 @@ require('lazy').setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
 
+    'j-hui/fidget.nvim',
+
     -- Autocomplete
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',

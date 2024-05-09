@@ -46,16 +46,25 @@ local function filterReactDTS(value)
     return string.match(value.targetUri, 'react/index.d.ts') == nil
 end
 
+local cmp_lsp = require("cmp_nvim_lsp")
+local capabilities = vim.tbl_deep_extend(
+    "force",
+    {},
+    vim.lsp.protocol.make_client_capabilities(),
+    cmp_lsp.default_capabilities())
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {},
     handlers = {
         function(server_name)
-            require("lspconfig")[server_name].setup({})
+            require("lspconfig")[server_name].setup({
+                capabilities = capabilities
+            })
         end,
         ["tsserver"] = function()
             lspconfig.tsserver.setup {
-                -- other options
+                capabilities = capabilities,
                 handlers = {
                     ['textDocument/definition'] = function(err, result, method, ...)
                         if vim.tbl_islist(result) and #result > 1 then
@@ -70,14 +79,18 @@ require('mason-lspconfig').setup({
         end,
         ["lua_ls"] = function()
             lspconfig.lua_ls.setup({
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
                             version = 'LuaJIT',
                         },
                         workspace = {
+                            checkThirdParty = false,
                             -- Make the server aware of Neovim runtime files
-                            library = vim.api.nvim_get_runtime_file("", true),
+                            library = {
+                                unpack(vim.api.nvim_get_runtime_file("", true))
+                            },
                         },
                         -- Do not send telemetry data containing a randomized but unique identifier
                         telemetry = {
@@ -87,13 +100,5 @@ require('mason-lspconfig').setup({
                 }
             })
         end,
-        ['html'] = function()
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-            lspconfig.html.setup({
-                capabilities = capabilities,
-            })
-        end
     },
 })
