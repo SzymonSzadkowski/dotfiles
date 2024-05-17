@@ -7,6 +7,7 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
+    preselect = cmp.PreselectMode.None,
     mapping = {
         ['<CR>'] = cmp.mapping(function(fallback)
             if cmp.visible() then

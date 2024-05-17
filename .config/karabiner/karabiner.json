@@ -1,8 +1,8 @@
 {
     "global": {
-        "ask_for_confirmation_before_quitting": true,
+        "ask_for_confirmation_before_quitting": false,
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
+        "show_in_menu_bar": false,
         "show_profile_name_in_menu_bar": false,
         "unsafe_ui": false
     },
@@ -85,7 +85,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -109,7 +109,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "m",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -133,7 +133,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -157,7 +157,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -453,7 +453,7 @@
                     ]
                 }
             ],
-            "name": "Default profile",
+            "name": "MacOS",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },

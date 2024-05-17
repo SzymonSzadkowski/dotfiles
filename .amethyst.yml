@@ -3,3 +3,15 @@ mod1:
   - shift
   - command
   - control
+
+focus-ccw:
+  mod: mod1
+  key: n
+
+focus-cw:
+  mod: mod1
+  key: p
+
+relaunch-amethyst:
+  mod: mod1
+  key: r

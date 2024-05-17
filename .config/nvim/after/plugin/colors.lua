@@ -15,7 +15,21 @@ require("tokyonight").setup({
             fg = colors.dark3
         }
 
+        hl.TelescopeResultsDiffChange = {
+            fg = colors.blue
+        }
+
+        hl.TelescopeResultsDiffAdd = {
+            fg = colors.green1
+        }
+
+        hl.TelescopeResultsDiffDelete = {
+            fg = colors.red
+        }
+
         hl.GitsignsChangeNr = { fg = colors.blue }
+        hl.GitsignsAddNr = { fg = colors.green1 }
+        hl.GitsignsDeleteNr = { fg = colors.red }
         hl.StatusLine = { fg = colors.fg_sidebar }
     end
 })
