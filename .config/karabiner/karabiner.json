@@ -97,7 +97,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'microsoft teams classic'"
+                                        "shell_command": "open -a 'microsoft teams (work or school)'"
                                     }
                                 ],
                                 "type": "basic"
