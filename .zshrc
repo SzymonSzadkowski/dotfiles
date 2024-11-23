@@ -8,6 +8,9 @@ alias sn="~/.scripts/sessionizer.sh"
 alias dot="cd ~/.dotfiles && nvim"
 alias fixdocker="sudo ln -s ~/.docker/run/docker.sock /var/run/docker.sock "
 
+# Homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
 # Additinal settings
 bindkey -e
 bindkey "^[[1;3C" forward-word
@@ -17,7 +20,7 @@ bindkey "^[[1;3D" backward-word
 source ~/.scripts/worktree-branch.sh
 
 # Plugins
-source ~/.dotfiles/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
 
 # pnpm

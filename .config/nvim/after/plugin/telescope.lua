@@ -7,6 +7,12 @@ telescope.setup({
         path_display = { shorten = { exclude = { 2, -2, -1 } } },
         -- path_display = { "smart" },
         scroll_strategy = "limit",
+        layout_strategy = "vertical",
+        layout_config = {
+            height = 0.95,
+            width = 0.95,
+            preview_cutoff = 1
+        },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -57,7 +63,7 @@ end)
 vim.keymap.set("n", "<Leader>df", function()
     builtin.find_files({
         prompt_title = "Dotfiles",
-        cwd = "~/.dotfiles/",
+        cwd = "~/dotfiles/",
         hidden = true,
         file_ignore_patterns = { ".git" }
     })
