@@ -24,6 +24,7 @@ require('lazy').setup({
 
     -- Colorscheme
     "folke/tokyonight.nvim",
+    { "rose-pine/neovim", name = "rose-pine" },
 
     -- Treesitter
     'nvim-treesitter/nvim-treesitter',
