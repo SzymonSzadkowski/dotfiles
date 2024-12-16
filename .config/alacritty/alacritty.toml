@@ -7,10 +7,9 @@ size = 20
 bindings = [
     # Tmux leader
     { chars = "\u0002", key = "S", mods = "Command" },
-    { chars = "\u001B\u007F", key = "Back", mods = "Alt" },
-    { chars = "\u0015", key = "Back", mods = "Command" },
+    # { chars = "\u001B\u007F", key = "Back", mods = "Alt" },
+    # { chars = "\u0015", key = "Back", mods = "Command" },
 ]
-
 [window]
 decorations = "none"
 startup_mode = "Maximized"

@@ -1,1 +1,1 @@
-require('naqet')
+require('config.init')
