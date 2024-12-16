@@ -18,9 +18,13 @@ require('lazy').setup({
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.5',
-        dependencies = { { 'nvim-lua/plenary.nvim' } }
+        dependencies = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'nvim-telescope/telescope-fzf-native.nvim',     build = 'make' },
+            { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", }
+        }
     },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    {},
 
     -- Colorscheme
     "folke/tokyonight.nvim",
@@ -37,6 +41,7 @@ require('lazy').setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
 
+    -- loading status on right bottom
     'j-hui/fidget.nvim',
 
     -- Autocomplete
@@ -44,6 +49,13 @@ require('lazy').setup({
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lua',
     { 'saadparwaiz1/cmp_luasnip', dependencies = { 'L3MON4D3/LuaSnip', version = "v2.*", build = "make install_jsregexp" } },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
 
     -- Utils
     'mbbill/undotree',

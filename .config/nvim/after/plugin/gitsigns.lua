@@ -19,8 +19,8 @@ require('gitsigns').setup {
         end
 
         -- Navigation
-        map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-        map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+        map('n', '<leader>cl', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+        map('n', '<leader>ch', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
 
         -- Actions
         map('n', '<leader>hu', '<cmd>Gitsigns reset_hunk<CR>')

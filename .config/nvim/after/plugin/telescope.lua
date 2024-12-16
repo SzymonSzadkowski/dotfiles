@@ -7,6 +7,8 @@ telescope.setup({
         path_display = { shorten = { exclude = { 2, -2, -1 } } },
         -- path_display = { "smart" },
         scroll_strategy = "limit",
+        layout_strategy = 'vertical',
+        layout_config = { height = 0.95, width = 0.95, preview_cutoff = 1 },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -24,23 +26,16 @@ telescope.setup({
                 ["<C-k>"] = actions.move_selection_previous,
             },
         },
-        extensions = {
-            fzf = {
-                fuzzy = true,
-                override_generic_sorter = true,
-                override_file_sorter = true,
-                case_mode = "smart_case",
-            },
-        }
     }
 })
 telescope.load_extension("fzf")
+telescope.load_extension("live_grep_args")
 
 local builtin = require('telescope.builtin');
 
-vim.keymap.set("n", "<Leader>fs", builtin.find_files)
-vim.keymap.set("n", "<Leader>fo", builtin.git_files)
-vim.keymap.set("n", "<Leader>fl", builtin.live_grep)
+vim.keymap.set("n", "<Leader>fj", builtin.find_files)
+vim.keymap.set("n", "<Leader>fk", builtin.git_files)
+vim.keymap.set("n", "<Leader>fl", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<Leader>fd", function()
     local dir = vim.fn.input("Dir: ", "", "file");
 

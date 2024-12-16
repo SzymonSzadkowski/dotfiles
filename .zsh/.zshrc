@@ -2,7 +2,6 @@
 export EDITOR="nvim"
 
 # Aliases
-alias vim="nvim"
 alias tm="tmux"
 alias sn="~/.scripts/sessionizer.sh"
 alias dot="cd ~/.dotfiles && nvim"
