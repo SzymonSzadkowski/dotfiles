@@ -30,7 +30,7 @@ M.live_with_args = function(opts)
         end
       end
 
-      local tab = vim
+      return vim
         .iter({
           args,
           additional,
@@ -42,11 +42,7 @@ M.live_with_args = function(opts)
             "--smart-case",
           },
         })
-        :flatten()
-
-      print(tab:join(" "))
-
-      return tab:totable()
+        :flatten():totable()
     end,
 
     entry_maker = make_entry.gen_from_vimgrep(opts),

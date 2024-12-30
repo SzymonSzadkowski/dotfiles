@@ -18,20 +18,31 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       require("mason").setup({})
       require("mason-lspconfig").setup({
         ensure_installed = {},
+        automatic_installation = false,
         handlers = {
           function(server_name)
-            lspconfig[server_name].setup({})
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
           end,
           ["html"] = function()
             lspconfig.html.setup({
+              capabilities = capabilities,
+              filetypes = { "html", "templ" },
+            })
+          end,
+          ["htmx"] = function()
+            lspconfig.htmx.setup({
               filetypes = { "html", "templ" },
             })
           end,
           ["tailwindcss"] = function()
             lspconfig.tailwindcss.setup({
+              capabilities = capabilities,
               filetypes = { "templ", "javascript", "typescript", "react" },
             })
           end,

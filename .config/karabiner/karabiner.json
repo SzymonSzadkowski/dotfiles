@@ -55,32 +55,6 @@
                         ]
                     },
                     {
-                        "description": "Open Teams",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_shift", "left_option"] }
-                                },
-                                "to": [{ "shell_command": "open -a 'microsoft teams (work or school)'" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Open Docker",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_shift", "left_option"] }
-                                },
-                                "to": [{ "shell_command": "open -a 'slack'" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Open Browser",
                         "manipulators": [
                             {
@@ -94,14 +68,27 @@
                         ]
                     },
                     {
-                        "description": "Open Alacritty",
+                        "description": "Open Ghostty",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": { "mandatory": ["left_command", "left_control", "left_shift", "left_option"] }
                                 },
-                                "to": [{ "shell_command": "open -a 'alacritty'" }],
+                                "to": [{ "shell_command": "open -a 'ghostty'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Open Docker",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["left_command", "left_control", "left_shift", "left_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a 'Docker'" }],
                                 "type": "basic"
                             }
                         ]

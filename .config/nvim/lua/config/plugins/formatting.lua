@@ -6,6 +6,7 @@ return {
       conform.setup({
         formatters_by_ft = {
           lua = { "stylua" },
+          templ = { "templ" },
           javascript = { "prettierd", stop_after_first = true },
           typescript = { "prettierd", stop_after_first = true },
           typescriptreact = { "prettierd", stop_after_first = true },

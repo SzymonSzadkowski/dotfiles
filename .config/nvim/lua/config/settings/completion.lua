@@ -9,6 +9,7 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+  preselect = 'None',
   sources = {
     {
       name = "lazydev",
