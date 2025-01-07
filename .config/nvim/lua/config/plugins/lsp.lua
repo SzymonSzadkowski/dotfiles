@@ -32,7 +32,7 @@ return {
           ["html"] = function()
             lspconfig.html.setup({
               capabilities = capabilities,
-              filetypes = { "html", "templ" },
+              filetypes = { "html", "templ"},
             })
           end,
           ["htmx"] = function()
@@ -43,7 +43,7 @@ return {
           ["tailwindcss"] = function()
             lspconfig.tailwindcss.setup({
               capabilities = capabilities,
-              filetypes = { "templ", "javascript", "typescript", "react" },
+              filetypes = { "templ", "javascript", "typescript", "typescriptreact", "css" },
             })
           end,
         },

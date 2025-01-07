@@ -29,6 +29,7 @@ return {
       -- Find
       vim.keymap.set("n", "<Leader>fj", builtin.find_files)
       vim.keymap.set("n", "<Leader>fk", builtin.git_files)
+      vim.keymap.set("n", "<Leader>fs", builtin.lsp_dynamic_workspace_symbols)
       vim.keymap.set("n", "<Leader>fc", function()
         builtin.find_files({
           cwd = vim.fn.stdpath("config"),

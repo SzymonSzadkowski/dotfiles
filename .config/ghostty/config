@@ -3,6 +3,7 @@ theme = tokyonight
 macos-titlebar-style = hidden
 window-decoration = false
 confirm-close-surface = false
+quit-after-last-window-closed = true
 
 keybind = cmd+s=text:
 
